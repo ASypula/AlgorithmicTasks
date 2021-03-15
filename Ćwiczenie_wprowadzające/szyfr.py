@@ -12,8 +12,8 @@ def main(arguments):
     with open(path, 'r') as file_handle:
         text = file_handle.read()
         text = text.split(" ")
-        for line in text:
-            print(line)
+        for word in text:
+            print(word)
         print(text[0])
         print(text[1:2])  # wiecej testowych printow
 
