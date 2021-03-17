@@ -28,23 +28,20 @@ def main(arguments):
     with open(path, 'r') as file_handle:
         text = file_handle.read()
         count = 0
-        for line in text:
-            for c in line:
-                if c == " ":
-                    count = count + 1
-                    if count == 1:
-                        print("/ ", end='')
-                    else:
-                        continue
-                else:
-                    letter_num = character_choice(ord(c))
-                    if letter_num is not None:
-                        count = 0
-                        print(morse_letters[letter_num - 65] + " ", end='')
-                    else:
-                        count = count + 1
-            if c == "\n":
+        for c in text:
+            if c == " ":
+                count = count + 1
+                if count == 1:
+                    print("/ ", end='')
+            elif c == "\n":
                 print('')
+            else:
+                letter_num = character_choice(ord(c))
+                if letter_num is not None:
+                    count = 0
+                    print(morse_letters[letter_num - 65] + " ", end='')
+                else:
+                    count = count + 1
 
 
 if __name__ == "__main__":
