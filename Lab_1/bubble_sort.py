@@ -1,4 +1,6 @@
-def bubbleSort(arr):
+# Sortowanie babelkowe, zlozonosc czasowa O(n^2)
+
+def bubble_sort(arr):
     n = len(arr)
     for i in range(0, n):
         ordered = True

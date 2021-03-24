@@ -14,7 +14,8 @@ def main(arguments):
 
     with open(path, "r") as f:
         huge_list = f.read().split()
-    pass
+
+    print(huge_list[10:100])
 
 if __name__ == "__main__":
     main(sys.argv)
