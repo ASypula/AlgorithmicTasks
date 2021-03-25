@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 import timeit
-from bubble_sort import bubble_sort
-from Sort import quick_sort
 
 global tab
 
@@ -43,7 +41,7 @@ def plot_graph(function_code, setup_code, numb, tab):
     plt.title(label=function_code)
     plt.savefig(f'{function_code[:5]}.png')
     # plt.show()
-    plt.clf()
+    plt.clf()  # jak sie to usunie to bedzie wykres ze wszystkim na raz
 
 
 tab = get_table("pan-tadeusz.txt", 10)
@@ -79,10 +77,8 @@ merge_sort(tab)'''
 
 setup = [setup_quick, setup_insert, setup_merge, setup_bubble]
 
-alghoritm = [sort_quick, sort_insertion, sort_merge, sort_bubble]
+algorithm = [sort_quick, sort_insertion, sort_merge, sort_bubble]
 
 for i in range(0, 4):
-    print(f"Now:{alghoritm[i]} ")
-    plot_graph(alghoritm[i], setup[i], 10, tab)
-
-#plot_graph1(sort_quick, setup_quick, 100)
+    print(f"Now:{algorithm[i]} ")
+    plot_graph(algorithm[i], setup[i], 10, tab)
