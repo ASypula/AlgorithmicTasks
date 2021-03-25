@@ -48,7 +48,7 @@ tab = get_table("pan-tadeusz.txt", 10)
 
 
 setup_insert = '''
-from Sort import insertion_sort
+from insertion_sort import insertion_sort
 from __main__ import tab '''
 
 sort_insertion = '''
@@ -56,7 +56,7 @@ insertion_sort(tab)
 '''
 
 setup_quick = '''
-from Sort import quick_sort
+from quick_sort import quick_sort
 from __main__ import tab'''
 
 sort_quick = "quick_sort(tab, 0, len(tab)-1)"
