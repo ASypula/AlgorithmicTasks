@@ -47,12 +47,12 @@ def plot_graph(function_code, setup_code, numb, tab):
 tab = get_table("pan-tadeusz.txt", 10)
 
 
-setup_insert = '''
-from insertion_sort import insertion_sort
+setup_selection = '''
+from selection_sort import selection_sort
 from __main__ import tab '''
 
-sort_insertion = '''
-insertion_sort(tab)
+sort_selection = '''
+selection_sort(tab)
 '''
 
 setup_quick = '''
@@ -75,9 +75,9 @@ from __main__ import tab'''
 sort_merge = '''
 merge_sort(tab)'''
 
-setup = [setup_quick, setup_insert, setup_merge, setup_bubble]
+setup = [setup_quick, setup_selection, setup_merge, setup_bubble]
 
-algorithm = [sort_quick, sort_insertion, sort_merge, sort_bubble]
+algorithm = [sort_quick, sort_selection, sort_merge, sort_bubble]
 
 for i in range(0, 4):
     print(f"Now:{algorithm[i]} ")
