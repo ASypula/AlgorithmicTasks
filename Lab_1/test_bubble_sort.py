@@ -2,13 +2,12 @@ from bubble_sort import bubble_sort
 
 
 def test_bubble_sort_words():
-    text = """Śród takich pól przed laty, nad brzegiem ruczaju,
-    Na pagórku niewielkim, we brzozowym gaju """
+    text = """Śród takich pól przed laty, nad brzegiem ruczaju, na pagórku niewielkim, we brzozowym gaju """
     arr = text.split()
     arr = bubble_sort(arr)
     assert arr == ['brzegiem', 'brzozowym', 'gaju', 'laty,',
-                   'Na', 'nad', 'niewielkim,', 'pagórku',
-                   'przed', 'pól', 'ruczaju', 'takich', 'we', 'Śród']
+                   'na', 'nad', 'niewielkim,', 'pagórku',
+                   'przed', 'pól', 'ruczaju,', 'takich', 'we', 'Śród']
 
 
 def test_bubble_sort_numbers():
