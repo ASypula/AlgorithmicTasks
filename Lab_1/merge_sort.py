@@ -35,6 +35,6 @@ def merge_sort(arr):
     return arr
 
 
-list = [5, 8, 10, 1, 2, 3]
-list = merge_sort(list)
-print(list)
+#list = [5, 8, 10, 1, 2, 3]
+#list = merge_sort(list)
+#print(list)
