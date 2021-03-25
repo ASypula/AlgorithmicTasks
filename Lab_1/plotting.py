@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import timeit
+import sys
+import argparse
 
-global tab
 
-def get_table(name, number):
-    with open(name, 'r') as fp:
+def get_table(path, number):
+    with open(path, 'r') as fp:
         text = fp.read()
         tab = []
         count = 0
@@ -25,26 +26,41 @@ def get_table(name, number):
     return tab
 
 
-def plot_graph(function_code, setup_code, numb, tab):
-    # table = []
+def plot_graph(function_code, setup_code, numb, tab, path):
     keys = []
     value = []
     for i in range(1, numb):
-        tab = get_table("pan-tadeusz.txt", i*1000)
-        t = timeit.timeit(setup=setup_code, stmt=function_code, number=100000)
-        print(t)
+        tab = get_table(path, i*10000)
+        t = timeit.timeit(setup=setup_code, stmt=function_code, number=10000)
         value.append(t)
         keys.append(i*1000)
-        # table.append(t)
-    # print(tab)
     plt.plot(keys, value, label=function_code)
-    plt.title(label=function_code)
-    plt.savefig(f'{function_code[:5]}.png')
+    plt.title(label="Sorting algorithms")
+    plt.legend()
+    plt.savefig(f'{function_code}.png')
     # plt.show()
-    plt.clf()  # jak sie to usunie to bedzie wykres ze wszystkim na raz
+    plt.clf()
 
 
-tab = get_table("pan-tadeusz.txt", 10)
+def main(arguments):
+    global tab
+    parser = argparse.ArgumentParser()
+    parser.add_argument('FILE')
+
+    # check if user gave input file name
+    if len(arguments) != 2:
+        print("Invalid number of arguments. You must give a file name")
+    else:
+        args = parser.parse_args(arguments[1:])
+        path = args.FILE
+        setup = [setup_quick, setup_selection, setup_merge, setup_bubble]
+        algorithm = [sort_quick, sort_selection, sort_merge, sort_bubble]
+        tab = get_table(path, 10)
+
+        for i in range(0, 4):
+            print(f"Now:{algorithm[i]} ")
+            plot_graph(algorithm[i], setup[i], 10, tab, path)
+        args = parser.parse_args(arguments[1:])
 
 
 setup_selection = '''
@@ -75,10 +91,5 @@ from __main__ import tab'''
 sort_merge = '''
 merge_sort(tab)'''
 
-setup = [setup_quick, setup_selection, setup_merge, setup_bubble]
-
-algorithm = [sort_quick, sort_selection, sort_merge, sort_bubble]
-
-for i in range(0, 4):
-    print(f"Now:{algorithm[i]} ")
-    plot_graph(algorithm[i], setup[i], 10, tab)
+if __name__ == "__main__":
+    main(sys.argv)
