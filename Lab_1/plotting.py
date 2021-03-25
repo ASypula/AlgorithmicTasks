@@ -35,7 +35,7 @@ def plot_graph(function_code, setup_code, numb, tab, path):
         value.append(t)
         keys.append(i*1000)
     plt.plot(keys, value, label=function_code)
-    plt.title(label="Sorting algorithms")
+    plt.title(label=f'{function_code}')
     plt.legend()
     plt.savefig(f'{function_code}.png')
     # plt.show()
