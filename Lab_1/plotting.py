@@ -58,7 +58,6 @@ def main(arguments):
         tab = get_table(path, 10)
 
         for i in range(0, 4):
-            print(f"Now:{algorithm[i]} ")
             plot_graph(algorithm[i], setup[i], 10, tab, path)
         args = parser.parse_args(arguments[1:])
 
