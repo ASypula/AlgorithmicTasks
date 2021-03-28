@@ -72,7 +72,6 @@ def main(arguments):
         for i in range(0, 4):
             # second argument - number of words to be sorted later multiplied by 100
             plot_graph_function(functions[i], 20, path, i)
-        args = parser.parse_args(arguments[1:])
 
 
 if __name__ == "__main__":
