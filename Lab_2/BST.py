@@ -12,11 +12,12 @@ class Node:
         self.number = self.number - 1
 
 
-def inorder(root):
+def tree_list(root, tree):
     if root is not None:
-        inorder(root.left)
-        print(root.key, end=" ")
-        inorder(root.right)
+        tree_list(root.left, tree)
+        tree.append(root.key)
+        tree_list(root.right, tree)
+    return tree
 
 
 def insert(node, key):
