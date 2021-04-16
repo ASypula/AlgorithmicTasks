@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt_delete
 from time import process_time
 import random
 import BST
@@ -9,6 +10,10 @@ def plot_graph_create_tree(amount, increase):  #amount - number of repetitions, 
     n = increase
     prepList = []
     AVLprepList = []
+    keysBST = []
+    valuesBST = []
+    keysAVL = []
+    valuesAVL = []
     while (i < amount):
         treeBST = None
         treeAVL = AVL_Tree()
@@ -28,9 +33,22 @@ def plot_graph_create_tree(amount, increase):  #amount - number of repetitions, 
         stop2 = process_time()
         timeBST = stop1 - start1
         timeAVL = stop2 - start2
+        keysBST.append(n)
+        valuesBST.append(timeBST)
+        keysAVL.append(n)
+        valuesAVL.append(timeAVL)
         n = n + increase
         i = i + 1
         print("time", timeAVL)
+    plt.plot(keysBST, valuesBST, label="BST")
+    plt.plot(keysAVL, valuesAVL, label="AVL")
+    plt.title(label="Insertion times")
+    plt.xlabel("n")
+    plt.ylabel("t [s]")
+    plt.legend()
+    plt.savefig("Insertion_times.png")
+    plt.show()
+    plt.clf()
 
 
 def plot_graph_remove_node(amount, increase, remove):  #amount - number of repetitions, increase - more numbers, remove - how many more node/keys we are removing
@@ -41,6 +59,10 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
     AVLprepList = []
     treeAVL = AVL_Tree()
     rootAVL = None
+    keysBST = []
+    valuesBST = []
+    keysAVL = []
+    valuesAVL = []
     while (i < amount):
         treeBST = None
         for x in range(1, n + 1):
@@ -61,15 +83,28 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
         stop2 = process_time()
         timeBST = stop1 - start1
         timeAVL = stop2 - start2
+        keysBST.append(r)
+        valuesBST.append(timeBST)
+        keysAVL.append(r)
+        valuesAVL.append(timeAVL)
         n = n + increase
         i = i + 1
         r = r + remove
         print("delete time", timeAVL)
+    plt.plot(keysBST, valuesBST, label="BST")
+    plt.plot(keysAVL, valuesAVL, label="AVL")
+    plt.title(label="Delete times")
+    plt.xlabel('n')
+    plt.ylabel("t [s]")
+    plt.legend()
+    plt.savefig("Delete_times.png")
+    plt.show()
+    plt.clf()
 
 
 def main():
-    plot_graph_create_tree(6, 800)
-    plot_graph_remove_node(6, 800, 6)
+    plot_graph_create_tree(6, 1000)
+    plot_graph_remove_node(6, 101, 100)
 
 
 if __name__ == "__main__":

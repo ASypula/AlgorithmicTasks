@@ -127,29 +127,26 @@ class AVL_Tree(object):
             return root
 
         elif key < root.key:
-            if root.left.num > 1:
-                root.left.num -= 1
-            else:
-                root.left = self.delete(root.left, key)
+            root.left = self.delete(root.left, key)
         elif key > root.key:
-            if root.right.num  > 1:
-                root.right .num -= 1
             root.right = self.delete(root.right, key)
-
         else:
-            if root.left is None:
-                temp = root.right
-                root = None
-                return temp
+            if root.num  > 1:
+                root.num -= 1
+            else:
+                if root.left is None:
+                    temp = root.right
+                    root = None
+                    return temp
 
-            elif root.right is None:
-                temp = root.left
-                root = None
-                return temp
+                elif root.right is None:
+                    temp = root.left
+                    root = None
+                    return temp
 
-            temp = self.get_min(root.right)
-            root.key = temp.key
-            root.right = self.delete(root.right, temp.key)
+                temp = self.get_min(root.right)
+                root.key = temp.key
+                root.right = self.delete(root.right, temp.key)
 
         # if the tree has only one node
         # return it
@@ -173,7 +170,7 @@ class AVL_Tree(object):
             return self.rotate_left(root)
 
         # Right Left
-        if balance < -1 and self.getBalance(root.right) > 0:
+        if balance < -1 and self.get_balance(root.right) > 0:
             root.right = self.rotate_right(root.right)
             return self.rotate_left(root)
 
