@@ -127,13 +127,13 @@ class AVL_Tree(object):
             return root
 
         elif key < root.key:
-            if self.num > 1:
-                self.num -= 1
+            if root.left.num > 1:
+                root.left.num -= 1
             else:
                 root.left = self.delete(root.left, key)
         elif key > root.key:
-            if self.num > 1:
-                self.num -= 1
+            if root.right.num  > 1:
+                root.right .num -= 1
             root.right = self.delete(root.right, key)
 
         else:
@@ -191,10 +191,10 @@ class AVL_Tree(object):
         return self.get_min(root.left)
 
 
-myTree = AVL_Tree()
-root = None
+# myTree = AVL_Tree()
+# root = None
 
-root = myTree.insert(root, 1)
-root = myTree.insert(root, 4)
-root = myTree.insert(root, 5)
-myTree.print_preorder(root)
+# root = myTree.insert(root, 1)
+# root = myTree.insert(root, 4)
+# root = myTree.insert(root, 5)
+# myTree.print_preorder(root)
