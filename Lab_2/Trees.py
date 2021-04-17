@@ -10,10 +10,14 @@ def plot_graph_create_tree(amount, increase):  #amount - number of repetitions, 
     n = increase
     prepList = []
     AVLprepList = []
+    # keys[], values[] are used later to create chart
     keysBST = []
     valuesBST = []
     keysAVL = []
     valuesAVL = []
+    # results[] store results that will be added to file
+    results_AVL = []
+    results_BST = []
     while (i < amount):
         treeBST = None
         treeAVL = AVL_Tree()
@@ -33,22 +37,36 @@ def plot_graph_create_tree(amount, increase):  #amount - number of repetitions, 
         stop2 = process_time()
         timeBST = stop1 - start1
         timeAVL = stop2 - start2
+        results_BST.append(f'inserted {n} elements, time: {timeBST}')
+        print(f'inserted {n} elements, time: {timeBST}')
+        results_AVL.append(f'inserted {n} elements, time: {timeAVL}')
+        print(f'inserted {n} elements, time: {timeAVL}')
         keysBST.append(n)
         valuesBST.append(timeBST)
         keysAVL.append(n)
         valuesAVL.append(timeAVL)
         n = n + increase
         i = i + 1
-        print("time", timeAVL)
+
     plt.plot(keysBST, valuesBST, label="BST")
     plt.plot(keysAVL, valuesAVL, label="AVL")
     plt.title(label="Insertion times")
     plt.xlabel("n")
     plt.ylabel("t [s]")
+    plt.axis([0, 11000, 0, 2.5])
     plt.legend()
+
     plt.savefig("Insertion_times.png")
     plt.show()
     plt.clf()
+    with open ("wyniki_AVL.txt", 'w') as fh:
+        for line in results_AVL:
+            fh.write(line)
+
+    with open ("wyniki_BST.txt", 'w') as fh:
+            for line in results_BST:
+                fh.write(line)
+
 
 
 def plot_graph_remove_node(amount, increase, remove):  #amount - number of repetitions, increase - more numbers, remove - how many more node/keys we are removing
@@ -63,6 +81,8 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
     valuesBST = []
     keysAVL = []
     valuesAVL = []
+    results_AVL = []
+    results_BST = []
     while (i < amount):
         treeBST = None
         for x in range(1, n + 1):
@@ -83,6 +103,10 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
         stop2 = process_time()
         timeBST = stop1 - start1
         timeAVL = stop2 - start2
+        results_BST.append(f'deleted {r} elements, time: {timeBST}')
+        print(f'deleted {r} elements, time: {timeBST}')
+        results_AVL.append(f'deleted {r} elements, time: {timeAVL}')
+        print(f'deleted {r} elements, time: {timeAVL}')
         keysBST.append(r)
         valuesBST.append(timeBST)
         keysAVL.append(r)
@@ -96,15 +120,23 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
     plt.title(label="Delete times")
     plt.xlabel('n')
     plt.ylabel("t [s]")
-    plt.legend()
+    plt.axis([100, 1500, 0, 0.05])
     plt.savefig("Delete_times.png")
     plt.show()
     plt.clf()
 
+    with open ("wyniki_AVL.txt", 'w') as fh:
+        for line in results_AVL:
+            fh.write(line)
+
+    with open ("wyniki_BST.txt", 'w') as fh:
+            for line in results_BST:
+                fh.write(line)
+
 
 def main():
-    plot_graph_create_tree(6, 1000)
-    plot_graph_remove_node(6, 101, 100)
+    plot_graph_create_tree(20, 500)
+    plot_graph_remove_node(30, 100, 50)
 
 
 if __name__ == "__main__":

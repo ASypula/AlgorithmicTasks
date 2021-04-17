@@ -14,6 +14,8 @@ class AVLNode():
 
 
 class AVL_Tree(object):
+    def __init__(self):
+        self.list_preorder = []
     # recursive function
     #  1. insert key in subtree rooted with node
     #  2. return new root of subtree
@@ -109,14 +111,13 @@ class AVL_Tree(object):
 
         return self.get_height(root.left) - self.get_height(root.right)
 
-    def print_preorder(self, root):
-
+    def preorder(self, root):
         if not root:
             return
 
-        print("{0} ".format(root.key), end="")
-        self.print_preorder(root.left)
-        self.print_preorder(root.right)
+        self.list_preorder.append(root.key)
+        self.preorder(root.left)
+        self.preorder(root.right)
 
     def delete(self, root, key):
         #  delete given key from subtree with given root.
@@ -188,10 +189,12 @@ class AVL_Tree(object):
         return self.get_min(root.left)
 
 
-# myTree = AVL_Tree()
-# root = None
+myTree = AVL_Tree()
+root = None
 
-# root = myTree.insert(root, 1)
-# root = myTree.insert(root, 4)
-# root = myTree.insert(root, 5)
-# myTree.print_preorder(root)
+root = myTree.insert(root, 1)
+root = myTree.insert(root, 4)
+root = myTree.insert(root, 5)
+lista = []
+myTree.preorder(root)
+print(myTree.list_preorder)
