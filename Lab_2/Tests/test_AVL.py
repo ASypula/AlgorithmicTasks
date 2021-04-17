@@ -58,6 +58,16 @@ def test_delete_all():
     assert tree.list_preorder == []
 
 
+def test_delete_typical_2():
+    num = [14, 17, 11, 7, 53, 4, 13, 12, 8]
+    tree = AVL_Tree()
+    root = None
+    for number in num:
+        root = tree.insert(root, number)
+    root = tree.delete(root, 53)
+    tree.preorder(root)
+    assert tree.list_preorder ==  [11, 7, 4, 8, 14, 12, 13, 17]
+
 def test_delete_with_rep():
     num = [1, 4, 5, 5]
     tree = AVL_Tree()
