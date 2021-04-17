@@ -127,12 +127,12 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
     plt.show()
     plt.clf()
 
-    with open ("wyniki_AVL.txt", 'w') as fh:
+    with open ("wyniki_AVL.txt", 'a') as fh:
         for line in results_AVL:
             fh.write(line)
             fh.write('\n')
 
-    with open ("wyniki_BST.txt", 'w') as fh:
+    with open ("wyniki_BST.txt", 'a') as fh:
             for line in results_BST:
                 fh.write(line)
                 fh.write('\n')
