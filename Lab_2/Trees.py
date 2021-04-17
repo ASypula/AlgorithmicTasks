@@ -37,10 +37,10 @@ def plot_graph_create_tree(amount, increase):  #amount - number of repetitions, 
         stop2 = process_time()
         timeBST = stop1 - start1
         timeAVL = stop2 - start2
-        results_BST.append(f'inserted {n} elements, time: {timeBST}')
-        print(f'inserted {n} elements, time: {timeBST}')
-        results_AVL.append(f'inserted {n} elements, time: {timeAVL}')
-        print(f'inserted {n} elements, time: {timeAVL}')
+        results_BST.append(f'inserted {n} elements to BST tree time: {timeBST}')
+        print(f'inserted {n} elements to BST tree, time: {timeBST}')
+        results_AVL.append(f'inserted {n} element to AVL tree, time: {timeAVL}')
+        print(f'inserted {n} elements to AVL tree, time: {timeAVL}')
         keysBST.append(n)
         valuesBST.append(timeBST)
         keysAVL.append(n)
@@ -62,10 +62,12 @@ def plot_graph_create_tree(amount, increase):  #amount - number of repetitions, 
     with open ("wyniki_AVL.txt", 'w') as fh:
         for line in results_AVL:
             fh.write(line)
+            fh.write('\n')
 
     with open ("wyniki_BST.txt", 'w') as fh:
             for line in results_BST:
                 fh.write(line)
+                fh.write('\n')
 
 
 
@@ -103,10 +105,10 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
         stop2 = process_time()
         timeBST = stop1 - start1
         timeAVL = stop2 - start2
-        results_BST.append(f'deleted {r} elements, time: {timeBST}')
-        print(f'deleted {r} elements, time: {timeBST}')
-        results_AVL.append(f'deleted {r} elements, time: {timeAVL}')
-        print(f'deleted {r} elements, time: {timeAVL}')
+        results_BST.append(f'deleted {r} elements from BST tree, time: {timeBST}')
+        print(f'deleted {r} elements from BST tree, time: {timeBST}')
+        results_AVL.append(f'deleted {r} elements from AVL tree, time: {timeAVL}')
+        print(f'deleted {r} elements from AVL tree, time: {timeAVL}')
         keysBST.append(r)
         valuesBST.append(timeBST)
         keysAVL.append(r)
@@ -128,14 +130,17 @@ def plot_graph_remove_node(amount, increase, remove):  #amount - number of repet
     with open ("wyniki_AVL.txt", 'w') as fh:
         for line in results_AVL:
             fh.write(line)
+            fh.write('\n')
 
     with open ("wyniki_BST.txt", 'w') as fh:
             for line in results_BST:
                 fh.write(line)
+                fh.write('\n')
 
 
 def main():
     plot_graph_create_tree(20, 500)
+    print('\n\n')
     plot_graph_remove_node(30, 100, 50)
 
 

@@ -189,12 +189,12 @@ class AVL_Tree(object):
         return self.get_min(root.left)
 
 
-myTree = AVL_Tree()
-root = None
+# myTree = AVL_Tree()
+# root = None
 
-root = myTree.insert(root, 1)
-root = myTree.insert(root, 4)
-root = myTree.insert(root, 5)
-lista = []
-myTree.preorder(root)
-print(myTree.list_preorder)
+# root = myTree.insert(root, 1)
+# root = myTree.insert(root, 4)
+# root = myTree.insert(root, 5)
+# lista = []
+# myTree.preorder(root)
+# print(myTree.list_preorder)
