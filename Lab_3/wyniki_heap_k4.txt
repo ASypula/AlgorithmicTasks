@@ -1,0 +1,40 @@
+It took 0.0002703470000000041 seconds to make heap from 500 elements
+
+It took 0.002698126000000023 seconds to make heap from 1000 elements
+
+It took 0.0025355100000000186 seconds to make heap from 1500 elements
+
+It took 0.0026728239999999626 seconds to make heap from 2000 elements
+
+It took 0.00997143899999997 seconds to make heap from 2500 elements
+
+It took 0.005480316000000041 seconds to make heap from 3000 elements
+
+It took 0.0070771969999999795 seconds to make heap from 3500 elements
+
+It took 0.009042722000000003 seconds to make heap from 4000 elements
+
+It took 0.011684861999999963 seconds to make heap from 4500 elements
+
+It took 0.014193612000000022 seconds to make heap from 5000 elements
+
+It took 0.017433512999999956 seconds to make heap from 5500 elements
+
+It took 0.020198129999999925 seconds to make heap from 6000 elements
+
+It took 0.02358270100000004 seconds to make heap from 6500 elements
+
+It took 0.027294588000000064 seconds to make heap from 7000 elements
+
+It took 0.03057137099999996 seconds to make heap from 7500 elements
+
+It took 0.03425761799999982 seconds to make heap from 8000 elements
+
+It took 0.03793055499999998 seconds to make heap from 8500 elements
+
+It took 0.04498311300000002 seconds to make heap from 9000 elements
+
+It took 0.04729977400000007 seconds to make heap from 9500 elements
+
+It took 0.05228281300000015 seconds to make heap from 10000 elements
+
