@@ -1,8 +1,8 @@
 from math import log, ceil
-
+from Build_heap import buildHeapInsertion
 
 def printHeap(heap, size, k):  # k is a heap degree(2, 3, 4), size equals len(heap) - 1
-    maxDepth = ceil(log((size), k)) # round log result up
+    maxDepth = ceil(log(((size + 1)/2), k)) # round log result up
     d = maxDepth # depth level, counting from 0
     d = 0
     while(d <= maxDepth):
@@ -40,8 +40,11 @@ def printHeap(heap, size, k):  # k is a heap degree(2, 3, 4), size equals len(he
 
 
 heappp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+heappp = buildHeapInsertion(heappp, 2)
 printHeap(heappp, 9, 2)
 print("\n\n")
+heappp = buildHeapInsertion(heappp, 3)
 printHeap(heappp, 9, 3)
 print("\n\n")
+heappp = buildHeapInsertion(heappp, 4)
 printHeap(heappp, 9, 4)
