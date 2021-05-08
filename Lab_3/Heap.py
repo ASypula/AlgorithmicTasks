@@ -30,11 +30,11 @@ def plot_graph_heaps(amount, increase):  #amount - number of repetitions, increa
             fh.write('\n\n\n')
 
         start1 = process_time()
-        heap = buildHeapInsertion(arr.copy(), 2)
+        heap = buildHeapInsertion(arr, 2)
         stop1 = process_time()
 
         start2 = process_time()
-        heap = buildHeapInsertion(arr.copy(), 3)
+        heap = buildHeapInsertion(arr, 3)
         stop2 = process_time()
 
         start3 = process_time()
@@ -51,8 +51,11 @@ def plot_graph_heaps(amount, increase):  #amount - number of repetitions, increa
         values_k4.append(timek4)
 
         results_k2 += f'It took {timek2} seconds to make heap from {n} elements\n\n'
+        print(f'It took {timek2} seconds to make heap from {n} elements\n\n')
         results_k3 += f'It took {timek3} seconds to make heap from {n} elements\n\n'
+        print(f'It took {timek3} seconds to make heap from {n} elements\n\n')
         results_k4 += f'It took {timek4} seconds to make heap from {n} elements\n\n'
+        print(f'It took {timek4} seconds to make heap from {n} elements\n\n')
         n = n + increase
         i = i + 1
 
@@ -81,6 +84,7 @@ def plot_graph_heaps(amount, increase):  #amount - number of repetitions, increa
         plt.ylabel("t [s]")
         plt.legend()
         plt.savefig(f'Heap_{i}_times.png')
+        plt.axis([0, 11000, 0, 0.2])
         plt.clf()
 
     # final plotting - all heaps in one file
