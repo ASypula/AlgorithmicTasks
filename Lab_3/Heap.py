@@ -68,8 +68,6 @@ def plot_graph_heaps(amount, increase):  #amount - number of repetitions, increa
     with open ("wyniki_heap_k4.txt", 'w') as fh:
             fh.write(results_k4)
 
-    with open ("wyniki_all_heaps.txt", 'w') as fh:
-        pass
 
     # time to plot
     for i in range (2,5):
