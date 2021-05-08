@@ -40,4 +40,8 @@ def printHeap(heap, size, k):  # k is a heap degree(2, 3, 4), size equals len(he
 
 
 heappp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+printHeap(heappp, 9, 2)
+print("\n\n")
+printHeap(heappp, 9, 3)
+print("\n\n")
 printHeap(heappp, 9, 4)
