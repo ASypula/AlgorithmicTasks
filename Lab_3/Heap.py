@@ -51,11 +51,11 @@ def plot_graph_heaps(amount, increase):  #amount - number of repetitions, increa
         values_k4.append(timek4)
 
         results_k2 += f'It took {timek2} seconds to make heap from {n} elements\n\n'
-        print(f'It took {timek2} seconds to make heap from {n} elements\n\n')
+        print(f'It took {timek2} seconds to make 2-heap from {n} elements\n\n')
         results_k3 += f'It took {timek3} seconds to make heap from {n} elements\n\n'
-        print(f'It took {timek3} seconds to make heap from {n} elements\n\n')
+        print(f'It took {timek3} seconds to make 3-heap from {n} elements\n\n')
         results_k4 += f'It took {timek4} seconds to make heap from {n} elements\n\n'
-        print(f'It took {timek4} seconds to make heap from {n} elements\n\n')
+        print(f'It took {timek4} seconds to make 4-heap from {n} elements\n\n')
         n = n + increase
         i = i + 1
 
@@ -68,8 +68,6 @@ def plot_graph_heaps(amount, increase):  #amount - number of repetitions, increa
     with open ("wyniki_heap_k4.txt", 'w') as fh:
             fh.write(results_k4)
 
-    with open ("wyniki_all_heaps.txt", 'w') as fh:
-        pass
 
     # time to plot
     for i in range (2,5):
