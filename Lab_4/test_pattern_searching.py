@@ -1,5 +1,5 @@
 import random
-from Pattern_searching import find_Naive, find_KMP, find_KR
+from .Pattern_searching import find_Naive, find_KMP, find_KR
 
 
 def test_empty_text_Naive():
