@@ -1,6 +1,7 @@
 import sys
 from heapq import heappop, heappush
-
+import argparse
+from typing import Counter
 
 # creating a matrix from a list of values
 def create_matrix(val_list, n):
@@ -90,7 +91,7 @@ def findShortestPaths(graph, source, dest, N):
     dist[source] = 0
     done = [False] * N
     done[source] = True
- 
+
     prev = [-1] * N
     route = []
     weight = 10
@@ -98,7 +99,7 @@ def findShortestPaths(graph, source, dest, N):
     # till min-heap is empty
     while pq:
 
-        node = heappop(pq)   
+        node = heappop(pq)
         u = node.vertex
 
         for edge in graph.adj[u]:
@@ -130,14 +131,24 @@ def save_path(matrix, route, N, path):
     file.close()
 
 
-if __name__ == '__main__':
+def main(arguments):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('IFILE')
+    parser.add_argument('OFILE')
+    args = parser.parse_args(arguments[1:])
+    input_path = args.IFILE
+    output_path = args.OFILE
 
     N = 6       # size of the grid NxN
     amount = N*N
-    val, zero_list = get_val_list("graph1.txt")
+    val, zero_list = get_val_list(input_path)
     src, dest = zero_list[0], zero_list[1]
     matrix = create_matrix(val, N)
     edges = create_edges_list(matrix, N)
     graph = Graph(edges, amount)
     route = findShortestPaths(graph, src, dest, amount)
-    save_path(matrix, route, N, "path1.txt")
+    save_path(matrix, route, N, output_path)
+
+
+if __name__ == '__main__':
+    main(sys.argv)
