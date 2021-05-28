@@ -1,84 +1,9 @@
 import sys
-from heapq import heappop, heappush
 import argparse
 from typing import Counter
-
-# creating a matrix from a list of values
-def create_matrix(val_list, n):
-    matrix = [[0 for x in range(n)]for y in range(n)]
-    i = 0
-    for y in range(n):
-        for x in range(n):
-            matrix[y][x] = val_list[i]
-            i = i+1
-    return matrix
-
-
-# creating a list of numbers from a grid given in the file, returns also places with 0's
-def get_val_list(path):
-    val_list = []
-    zero_list = []
-    count = 0
-    with open(path, 'r') as fp:
-        values = fp.read()
-        for line in values:
-            for number in line:
-                if (number == '\n'):
-                    continue
-                val_list.append(int(number))
-                if int(number) == 0:
-                    zero_list.append(count)
-                count = count+1
-    return val_list, zero_list
-
-
-# creating a list of edges from a grid (matrix)
-def create_edges_list(matrix, N):
-    edges = []
-    for y in range(N):
-        for x in range(N):
-            if y < (N-1):
-                edges.append(Edge(N*y+x, N*(y+1)+x, matrix[y+1][x]))
-            if y > 0:
-                edges.append(Edge(N*y+x, N*(y-1)+x, matrix[y-1][x]))
-            if x < (N-1):
-                edges.append(Edge(N*y+x, N*y+x+1, matrix[y][x+1]))
-            if x > 0:
-                edges.append(Edge(N*y+x, N*y+x-1, matrix[y][x-1]))
-    return edges
-
-
-class Edge:
-    def __init__(self, source, dest, weight):
-        self.source = source
-        self.dest = dest
-        self.weight = weight
-
-
-class Node:
-    def __init__(self, vertex, weight):
-        self.vertex = vertex
-        self.weight = weight
-
-    # to make the class work with a min-heap
-    def __lt__(self, other):
-        return self.weight < other.weight
-
-
-class Graph:
-    def __init__(self, edges, N):
-        # adjacency list
-        self.adj = [[] for _ in range(N)]
-
-        # adding edges to the graph
-        for edge in edges:
-            self.adj[edge.source].append(edge)
-
-# getting route from source to destination
-def get_route(prev, i, route):
-    if i >= 0:
-        get_route(prev, prev[i], route)
-        route.append(i)
+from heapq import heappop, heappush
+from Graph_structures import Edge, Graph, Node
+from Structures_prep import create_matrix, get_val_list, create_edges_list
 
 
 # Dijkstra’s algorithm
@@ -99,7 +24,7 @@ def findShortestPaths(graph, source, dest, N):
     # till min-heap is empty
     while pq:
 
-        node = heappop(pq)
+        node = heappop(pq)   
         u = node.vertex
 
         for edge in graph.adj[u]:
@@ -116,6 +41,13 @@ def findShortestPaths(graph, source, dest, N):
 
     get_route(prev, dest, route)
     return route
+
+
+# getting route from source to destination
+def get_route(prev, i, route):
+    if i >= 0:
+        get_route(prev, prev[i], route)
+        route.append(i)
 
 
 # saving the shortest path to a given file
