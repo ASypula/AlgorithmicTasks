@@ -71,9 +71,9 @@ def main(arguments):
     input_path = args.IFILE
     output_path = args.OFILE
 
-    N = 6       # size of the grid NxN
+    # size of the grid NxN
+    val, zero_list, N = get_val_list(input_path)
     amount = N*N
-    val, zero_list = get_val_list(input_path)
     src, dest = zero_list[0], zero_list[1]
     matrix = create_matrix(val, N)
     edges = create_edges_list(matrix, N)
