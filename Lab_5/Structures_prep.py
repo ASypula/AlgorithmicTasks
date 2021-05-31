@@ -12,22 +12,24 @@ def create_matrix(val_list, n):
     return matrix
 
 
-# creating a list of numbers from a grid given in the file, returns also places with 0's
+# creating a list of numbers from a grid given in the file, returns also places with 0's and size of the grid
 def get_val_list(path):
     val_list = []
     zero_list = []
     count = 0
+    size = 0
     with open(path, 'r') as fp:
         values = fp.read()
         for line in values:
             for number in line:
                 if (number == '\n'):
+                    size = size+1
                     continue
                 val_list.append(int(number))
                 if int(number) == 0:
                     zero_list.append(count)
                 count = count+1
-    return val_list, zero_list
+    return val_list, zero_list, size
 
 
 # creating a list of edges from a grid (matrix)
