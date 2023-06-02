@@ -1,9 +1,7 @@
-# AISDI_2021_104
+# Algorithmic tasks
 
-Repozytorium z rozwiązaniami zadań z przedmiotu AISDI 21L.
+Repository for solutions to tasks from a course Algorithms and Data Structures at Warsaw University of Technology
 
-Zespół:
-
-Aleksandra Sypuła
-
-Zuzanna Filipkowska
+Team:
+* Aleksandra Sypuła
+* Zuzanna Filipkowska
